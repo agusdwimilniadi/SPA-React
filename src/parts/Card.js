@@ -25,7 +25,11 @@ const Card = (props) => {
               {/* eslint-disable */}
               <div className="postcard__text t-dark">
                 <h1 className="postcard__title blue">
-                  <Button className="nav-link" type="link" href="/detail">
+                  <Button
+                    className="nav-link"
+                    type="link"
+                    href={`/detail/${props.id}`}
+                  >
                     {props.title}
                   </Button>
                 </h1>
