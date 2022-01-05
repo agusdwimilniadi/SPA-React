@@ -1,4 +1,4 @@
-import { ActionTypes } from "../contants/action-types";
+import { ActionTypes } from "../constants/action-types";
 
 const initialState = {
   post: [],
@@ -30,6 +30,40 @@ export const selectedUserReducer = (
 ) => {
   switch (type) {
     case ActionTypes.SELECTED_USER:
+      return { ...state, post: payload };
+    default:
+      return state;
+  }
+};
+
+export const selectedCommentsReducer = (
+  state = initialState,
+  { type, payload }
+) => {
+  switch (type) {
+    case ActionTypes.SELECTED_COMMENTS:
+      return { ...state, post: payload };
+    default:
+      return state;
+  }
+};
+export const selectedAlbumsReducer = (
+  state = initialState,
+  { type, payload }
+) => {
+  switch (type) {
+    case ActionTypes.SELECTED_ALBUMS:
+      return { ...state, post: payload };
+    default:
+      return state;
+  }
+};
+export const selectedPhotoAlbumsReducer = (
+  state = initialState,
+  { type, payload }
+) => {
+  switch (type) {
+    case ActionTypes.SELECTED_PHOTO_ALBUMS:
       return { ...state, post: payload };
     default:
       return state;

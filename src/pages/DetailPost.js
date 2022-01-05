@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Comments from "../parts/Comments";
@@ -9,7 +9,6 @@ import {
   selectedPost,
   removeSelectedPost,
 } from "../redux/actions/productsActions";
-import { getDataDetailPost } from "../services/DetailsPost";
 
 const Detailpost = () => {
   const post = useSelector((state) => state).post;
@@ -31,6 +30,7 @@ const Detailpost = () => {
     return () => {
       dispatch(removeSelectedPost());
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postId]);
   return (
     <>
@@ -49,7 +49,7 @@ const Detailpost = () => {
             <div className="text-center">
               <h1>{post.title}</h1>
             </div>
-            <Username userId={post.userId} />
+            <Username />
             <p>{post.body}</p>
 
             <div className="row mt-5">
