@@ -20,9 +20,11 @@ const Detailphoto = () => {
   };
   useEffect(() => {
     if (params !== "") fetchPhoto();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
   const photo = useSelector((state) => state).photo.post;
+
   return (
     <>
       <Navbar></Navbar>

@@ -65,6 +65,8 @@ export const selectedPhotoAlbumsReducer = (
   switch (type) {
     case ActionTypes.SELECTED_PHOTO_ALBUMS:
       return { ...state, post: payload };
+    case ActionTypes.REMOVE_SELECTED_PHOTO_ALBUMS:
+      return {};
     default:
       return state;
   }
