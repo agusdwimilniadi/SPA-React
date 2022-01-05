@@ -12,8 +12,15 @@ export const selectedPost = (post) => {
     payload: post,
   };
 };
-export const removeSelectedProduct = () => {
+export const removeSelectedPost = () => {
   return {
     type: ActionTypes.REMOVE_SELECTED_POST,
+  };
+};
+
+export const selectedUser = (post) => {
+  return {
+    type: ActionTypes.SELECTED_USER,
+    payload: post,
   };
 };

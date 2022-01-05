@@ -1,27 +1,32 @@
-import React, { useCallback, useEffect, useState } from "react";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../elements/button";
-import { getDataUserDetail } from "../services/BerandaPost";
+import { selectedUser } from "../redux/actions/productsActions";
 
-const Username = (props) => {
-  const [dataDetail, setDataDetail] = useState([]);
-  const [idUser, setIdUser] = useState("");
+const Username = () => {
+  const userData = useSelector((state) => state).user.post;
+  const userId = useSelector((state) => state).post.userId;
 
-  const getDataUserList = useCallback(async () => {
-    const data = await getDataUserDetail(props.userId);
-    setDataDetail(data);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getDataUserDetail]);
+  const dispatch = useDispatch();
 
+  const fetchUserDetail = async () => {
+    const response = await axios
+      .get(`https://jsonplaceholder.typicode.com/users/${userId}`)
+      .catch((err) => {
+        console.log(err);
+      });
+
+    dispatch(selectedUser(response.data));
+  };
   useEffect(() => {
-    setTimeout(() => {
-      getDataUserList();
-    }, 2500);
-    getDataUserList();
-  }, [getDataUserList]);
+    if (userId && userId !== "") fetchUserDetail();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId]);
   return (
     <>
       <Button className="nav-link" type="link" href="/detail/">
-        Written By : {console.log(dataDetail)}
+        Written By : {userData.name}
       </Button>
     </>
   );

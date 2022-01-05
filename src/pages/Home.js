@@ -25,7 +25,6 @@ const Home = () => {
   }, []);
   return (
     <>
-      {console.log(post)}
       <Navbar></Navbar>
       <div className="container">
         <h1 className="text-center mb-5">Post</h1>
