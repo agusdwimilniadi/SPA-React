@@ -1,8 +1,6 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 import Card from "../parts/Card";
 import Navbar from "../parts/Navbar";
-import { useState } from "react";
-import { getDataPost } from "../services/BerandaPost";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setPost } from "../redux/actions/productsActions";
@@ -22,6 +20,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchPost();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>

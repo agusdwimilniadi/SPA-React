@@ -25,7 +25,7 @@ const Username = () => {
   }, [userId]);
   return (
     <>
-      <Button className="nav-link" type="link" href="/detail/">
+      <Button className="nav-link" type="link" href={`/user/${userId}`}>
         Written By : {userData.name}
       </Button>
     </>
