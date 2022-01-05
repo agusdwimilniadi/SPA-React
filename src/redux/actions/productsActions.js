@@ -43,3 +43,9 @@ export const selectedPhotoAlbums = (post) => {
     payload: post,
   };
 };
+
+export const removeSelectedPhotoAlbums = () => {
+  return {
+    type: ActionTypes.REMOVE_SELECTED_PHOTO_ALBUMS,
+  };
+};
